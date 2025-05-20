@@ -38,7 +38,7 @@
                         <th>#</th>
                         <th>Roll</th>
                         <th>Name</th>
-                        <th>MObile</th>
+                        <th>Mobile</th>
                         <th>Email</th>
                         <th>Image</th>
                         <th>Created At</th>
@@ -47,21 +47,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2025101</td>
-                        <td>Jane Doe</td>
-                        <td>9142457731</td>
-                        <td>jane@example.com</td>
-                        <td><a href="image"></a></td>
-                        <td>2025-05-19</td>
-                        <td>2025-05-19</td>
+                    <?php
+                    include 'database/config.php';
+                    $view = "select * from student WHERE roll != '2025100'";
+                    $viewQ = mysqli_query($conn,$view);
+                    $sn=0;
+                    while($row = mysqli_fetch_array($viewQ)){
+                        ?>
+                        <tr>
+                        <td><?php echo $sn=$sn+1 ?></td>
+                        <td><?php echo $row['roll'] ?></td>
+                        <td><?php echo $row['fname']." ". $row['lname']?></td>
+                        <td><?php echo $row['mobile'] ?></td>
+                        <td><?php echo $row['email'] ?></td>
+                        <td><img src="<?php echo $row['image'] ?>" alt="" class="rounded-circle w-25 h-25"></td>
+                        <td><?php echo $row['create_at'] ?></td>
+                        <td><?php echo $row['update_at'] ?></td>
                         <td class="text-center">
                             <a href="#" class="btn btn-info btn-sm me-1">View</a>
                             <a href="#" class="btn btn-warning btn-sm me-1">Edit</a>
                             <a href="#" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
+                        <?php
+                    }
+
+                    ?>
+                    
                     <!-- More records here -->
                 </tbody>
             </table>
