@@ -1,3 +1,6 @@
+<?php
+ include 'database/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +32,7 @@
             <h2 class="text-primary">Records List</h2>
             <a href="addnew.php" class="btn btn-success">+ Add New</a>
         </div>
+        
 
         <!-- Table -->
         <div class="table-responsive">
@@ -48,7 +52,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    include 'database/config.php';
+                   
                     $view = "select * from student WHERE roll != '2025100'";
                     $viewQ = mysqli_query($conn,$view);
                     $sn=0;
@@ -64,9 +68,9 @@
                         <td><?php echo $row['create_at'] ?></td>
                         <td><?php echo $row['update_at'] ?></td>
                         <td class="text-center">
-                            <a href="#" class="btn btn-info btn-sm me-1">View</a>
+                            <a href="view.php?rollnumber=<?php echo urlencode(base64_encode($row['roll'])) ?>" class="btn btn-info btn-sm me-1">View</a>
                             <a href="#" class="btn btn-warning btn-sm me-1">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                         <?php
