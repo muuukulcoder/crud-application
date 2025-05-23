@@ -69,7 +69,7 @@
                         <td><?php echo $row['update_at'] ?></td>
                         <td class="text-center">
                             <a href="view.php?rollnumber=<?php echo urlencode(base64_encode($row['roll'])) ?>" class="btn btn-info btn-sm me-1">View</a>
-                            <a href="#" class="btn btn-warning btn-sm me-1">Edit</a>
+                            <a href="edit.php?rollnumber=<?php echo urlencode(base64_encode($row['roll'])) ?>" class="btn btn-warning btn-sm me-1">Edit</a>
                             <a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>

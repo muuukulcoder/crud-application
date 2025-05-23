@@ -4,7 +4,7 @@ $rollnumber =urldecode(base64_decode( $_GET['rollnumber']));
 //echo $rollnumber;
 $data = "select * from student where roll = '$rollnumber'";
 $dataQ = mysqli_query($conn, $data);
-$info = mysqli_fetch_array($dataQ)
+$info = mysqli_fetch_array($dataQ);
 ?>
 <!DOCTYPE html>
 <html lang="en">
