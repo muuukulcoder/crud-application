@@ -78,7 +78,7 @@ $roll = $row['roll']+1;
                             <!-- Mobile Number -->
                             <div class="col-md-6 mb-3">
                                 <label for="mobile" class="form-label">Mobile Number</label>
-                                <input type="tel" class="form-control" id="mobile" name="mobile" required pattern="[0-9]{10}" placeholder="e.g., 9876543210">
+                                <input type="tel" class="form-control" id="mobile" name="mobile" required pattern="[0-9]{10}" placeholder="e.g., 9876543210" maxlength="10">
                             </div>
 
                             <!-- Email -->

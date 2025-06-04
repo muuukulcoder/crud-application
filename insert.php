@@ -26,19 +26,11 @@ if($imagemainFile){
 
       $insertQ = mysqli_query($conn,$insert);
       if($insertQ==true){
-        ?>
-        <script>
-            alert("Insert sucessfully!");
-            location.replace("index.php");
-        </script>
-        <?php
+        
+        header("Location: add_success.php");
+        
       }else {
-        ?>
-        <script>
-            alert("Insert Not sucessfully try again!!!");
-            location.replace("addnew.php");
-        </script>
-        <?php
+        header("location: add_error.php");
       }
     }
 }
